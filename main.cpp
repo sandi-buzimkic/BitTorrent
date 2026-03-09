@@ -25,7 +25,7 @@ std::string parseString(const std::string& data,int& pos){
 int main() {
     std::cout << "BitTorrent client starting..." << std::endl;
 
-    std::string filename = "big-buck-bunny.torrent";
+    std::string filename = "build/big-buck-bunny.torrent";
     
     std::ifstream file(filename, std::ios::binary);
     if (!file.is_open()) {
@@ -34,7 +34,12 @@ int main() {
     }
 
     std::cout << "Opened torrent file successfully!" << std::endl;
-    
+    std::string line;
+    // Read the file line by line
+    while (std::getline(file, line)) {
+        std::cout << line << std::endl; 
+    }
+
     /*std::string number="i422e";
     int pos=0;
     std::cout<<"number is: "<<parseInt(number,pos)<<" \n";
@@ -45,8 +50,9 @@ int main() {
     return 0;*/
     
     std::string exampleData = "d8:announce31:http://example.com datei1677655000e4:infod6:lengthi1048576e4:name10:sample.txte12:piece lengthi16384e6:pieces20:abcdefghij1234567890ee";
-
-}
+	
+	std::cout<<exampleData;
+	
 /*
 
 Press **F11** to compile and run. This is your foundation.
